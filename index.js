@@ -15,4 +15,15 @@ function afficher(liste) {
   console.log(`Tâches restantes : ${restantes}`);
 }
 
-afficher(taches);
+function supprimer(liste, id) {
+  const index = liste.findIndex((t) => t.id === id);
+  if (index !== -1) {
+    liste.splice(index, 1);
+  }
+}
+
+module.exports = { taches, afficher, supprimer };
+
+if (require.main === module) {
+  afficher(taches);
+}
